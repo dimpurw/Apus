@@ -13,9 +13,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// views
 Route::get('/', function () {
     return view('index');
 });
 Route::get('/about', function () {
     return view('about');
+});
+
+// auth
+Route::post('/postlogin', 'Auth\LoginController@postlogin');
+Route::get('/logout', 'Auth\LoginController@logout');
+
+// home 
+Route::group(['middleware' => ['auth', 'CheckRole:pelanggan,barbershop,admin']], function () {
+    Route::get('/home', function () {
+        return view('home');
+    });
 });
