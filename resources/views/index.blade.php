@@ -11,22 +11,23 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
-        <form>
+      <form method="POST" action="postlogin">
+        @csrf
+        <div class="modal-body">
           <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Username:</label>
-            <input type="text" class="form-control" id="username">
+            <label for="recipient-name" class="col-form-label">Email:</label>
+            <input type="email" name="email" class="form-control" id="email">
           </div>
           <div class="form-group">
             <label for="message-text" class="col-form-label">Password:</label>
-            <input type="password" class="form-control" id="password"></input>
+            <input type="password" name="password" class="form-control" id="password"></input>
           </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Login</button>
-      </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Login</button>
+        </div>
+      </form>
     </div>
   </div>
 </div>

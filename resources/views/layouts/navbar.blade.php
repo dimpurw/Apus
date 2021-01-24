@@ -31,8 +31,21 @@
                         <a class="nav-link" href="contact.html">Contact</a>
                     </li>
                     <li class="nav-item">
+                        @if (Auth::check())
+                        <div class="dropdown">
+                            <button class="btn btn-primary dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                {{ Auth::user()->username }}
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="">Profile</a>
+                                <a class="dropdown-item" href="">Dashboard</a>
+                                <a class="dropdown-item" href="/logout">Logout</a>
+                            </div>
+                        </div>
+                        @else
                         <a class="btn border border-primary ml-lg-3" href="#" data-toggle="modal" data-target="#login" data-whatever="login">Login</a>
                         <a class="btn btn-primary ml-lg-3" href="#">Register</a>
+                        @endif
                     </li>
                 </ul>
             </div> <!-- .navbar-collapse -->
