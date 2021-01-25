@@ -25,7 +25,7 @@
                         <a class="nav-link" href="/about">About Us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="blog.html">News</a>
+                        <a class="nav-link" href="/news">News</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="contact.html">Contact</a>
@@ -44,7 +44,7 @@
                         </div>
                         @else
                         <a class="btn border border-primary ml-lg-3" href="#" data-toggle="modal" data-target="#login" data-whatever="login">Login</a>
-                        <a class="btn btn-primary ml-lg-3" href="#">Register</a>
+                        <a class="btn btn-primary ml-lg-3" href="#" data-toggle="modal" data-target="#register" data-whatever="register">Register</a>
                         @endif
                     </li>
                 </ul>
