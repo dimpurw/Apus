@@ -20,6 +20,9 @@ Route::get('/', function () {
 Route::get('/about', function () {
     return view('about');
 });
+Route::get('/news', function () {
+    return view('blog');
+});
 
 // auth
 Route::post('/postlogin', 'Auth\LoginController@postlogin');
