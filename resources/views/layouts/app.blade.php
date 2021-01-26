@@ -86,8 +86,16 @@
                             <input type="password" name="password" class="form-control" id="password"></input>
                         </div>
                         <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">Alamat:</label>
+                            <input type="text" name="nama" class="form-control" id="nama">
+                        </div>
+                        <div class="form-group">
                             <label for="recipient-name" class="col-form-label">No Hp:</label>
                             <input type="number" name="nohp" class="form-control" id="nohp">
+                        </div>
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">Foto:</label>
+                            <input type="file" name="nohp" class="form-control" id="nohp">
                         </div>
                     </div>
                     <div class="modal-footer">
