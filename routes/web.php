@@ -23,13 +23,17 @@ Route::get('/about', function () {
 Route::get('/news', function () {
     return view('blog');
 });
+Route::get('/newsdetail', function () {
+    return view('blog-detail');
+});
 
 // auth
-Route::post('/postlogin', 'Auth\LoginController@postlogin');
+Route::post('/postregister', 'Auth\RegisterController@store');
+Route::post('/postlogin', 'Auth\LoginController@store');
 Route::get('/logout', 'Auth\LoginController@logout');
 
 // home 
-Route::group(['middleware' => ['auth', 'CheckRole:pelanggan,barbershop,admin']], function () {
+Route::group(['middleware' => ['auth', 'CheckRole:user,admin']], function () {
     Route::get('/home', function () {
         return view('home');
     });
