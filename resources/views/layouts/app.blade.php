@@ -70,12 +70,12 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form method="POST" action="postlogin">
+                <form method="POST" action="postregister" enctype="multipart/form-data">
                     @csrf
                     <div class="modal-body">
                         <div class="form-group">
-                            <label for="recipient-name" class="col-form-label">Nama:</label>
-                            <input type="text" name="nama" class="form-control" id="nama">
+                            <label for="recipient-name" class="col-form-label">Username:</label>
+                            <input type="text" name="username" class="form-control" id="nama">
                         </div>
                         <div class="form-group">
                             <label for="recipient-name" class="col-form-label">Email:</label>
@@ -87,7 +87,7 @@
                         </div>
                         <div class="form-group">
                             <label for="recipient-name" class="col-form-label">Alamat:</label>
-                            <input type="text" name="nama" class="form-control" id="nama">
+                            <input type="text" name="alamat" class="form-control" id="nama">
                         </div>
                         <div class="form-group">
                             <label for="recipient-name" class="col-form-label">No Hp:</label>
@@ -95,7 +95,7 @@
                         </div>
                         <div class="form-group">
                             <label for="recipient-name" class="col-form-label">Foto:</label>
-                            <input type="file" name="nohp" class="form-control" id="nohp">
+                            <input type="file" name="foto" class="form-control" id="nohp">
                         </div>
                     </div>
                     <div class="modal-footer">
