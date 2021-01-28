@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
-    public function postlogin(Request $request)
+    public function store(Request $request)
     {
         $request->validate([
             'email' => 'required|string|email',
