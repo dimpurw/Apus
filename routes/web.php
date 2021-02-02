@@ -26,6 +26,9 @@ Route::get('/news', function () {
 Route::get('/newsdetail', function () {
     return view('blog-detail');
 });
+Route::get('/dashboards', function () {
+    return view('dashboard.index');
+});
 
 // auth
 Route::post('/postregister', 'Auth\RegisterController@store');
