@@ -26,9 +26,6 @@ Route::get('/news', function () {
 Route::get('/newsdetail', function () {
     return view('blog-detail');
 });
-Route::get('/dashboards', function () {
-    return view('dashboard.index');
-});
 
 // auth
 Route::post('/postregister', 'Auth\RegisterController@store');
@@ -37,6 +34,9 @@ Route::get('/logout', 'Auth\LoginController@logout');
 
 // home 
 Route::group(['middleware' => ['auth', 'CheckRole:user,admin']], function () {
+    Route::get('/dashboards', function () {
+        return view('dashboard.index');
+    });
     Route::get('/home', function () {
         return view('home');
     });
