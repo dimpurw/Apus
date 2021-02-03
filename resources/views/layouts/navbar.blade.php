@@ -38,7 +38,7 @@
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 <a class="dropdown-item" href="">Profile</a>
-                                <a class="dropdown-item" href="">Dashboard</a>
+                                <a class="dropdown-item" href="/dashboards">Dashboard</a>
                                 <a class="dropdown-item" href="/logout">Logout</a>
                             </div>
                         </div>
