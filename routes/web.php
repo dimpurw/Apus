@@ -40,4 +40,7 @@ Route::group(['middleware' => ['auth', 'CheckRole:user,admin']], function () {
     Route::get('/home', function () {
         return view('home');
     });
+    Route::get('/prediction', function () {
+        return view('dashboard.prediction');
+    });
 });
