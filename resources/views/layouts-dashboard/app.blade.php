@@ -72,6 +72,71 @@
     <script src="dashboard/dist/js/demo.js"></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="dashboard/dist/js/pages/dashboard.js"></script>
+    <script src="dashboard/plugins/jquery/jquery.min.js"></script>
+    <!-- FLOT CHARTS -->
+    <script src="dashboard/plugins/flot/jquery.flot.js"></script>
+    <!-- FLOT RESIZE PLUGIN - allows the chart to redraw when the window is resized -->
+    <script src="dashboard/plugins/flot/plugins/jquery.flot.resize.js"></script>
+    <!-- FLOT PIE PLUGIN - also used to draw donut charts -->
+    <script src="dashboard/plugins/flot/plugins/jquery.flot.pie.js"></script>
+    <script>
+    $(function () {
+        /*
+        * DONUT CHART
+        * -----------
+        */
+
+        var donutData = [
+        {
+            label: 'Series2',
+            data : 80,
+            color: '#3c8dbc'
+        },
+        {
+            label: 'Series3',
+            data : 20,
+            color: '#0073b7'
+        },
+        {
+            label: 'Series4',
+            data : 50,
+            color: '#00c0ef'
+        }
+        ]
+        $.plot('#donut-chart', donutData, {
+        series: {
+            pie: {
+            show       : true,
+            radius     : 1,
+            innerRadius: 0.5,
+            label      : {
+                show     : true,
+                radius   : 2 / 3,
+                formatter: labelFormatter,
+                threshold: 0.1
+            }
+
+            }
+        },
+        legend: {
+            show: false
+        }
+        })
+        /*
+        * END DONUT CHART
+        */
+    })
+    /*
+    * Custom Label formatter
+    * ----------------------
+    */
+    function labelFormatter(label, series) {
+        return '<div style="font-size:13px; text-align:center; padding:2px; color: #fff; font-weight: 600;">'
+        + label
+        + '<br>'
+        + Math.round(series.percent) + '%</div>'
+    }
+</script>
 </body>
 
 </html>
