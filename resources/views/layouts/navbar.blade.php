@@ -1,7 +1,7 @@
 <header>
     <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
         <div class="container">
-            <a class="navbar-brand" href="#"><span class="text-primary">A</span>-Pus</a>
+            <a class="navbar-brand" href="/"><span class="text-primary">A</span>-Pus</a>
 
             <form action="#">
                 <div class="input-group input-navbar">
@@ -28,7 +28,7 @@
                         <a class="nav-link" href="/news">News</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Forum</a>
+                        <a class="nav-link" href="/forum">Forum</a>
                     </li>
                     <li class="nav-item">
                         @if (Auth::check())
@@ -37,7 +37,7 @@
                                 {{ Auth::user()->username }}
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="">Profile</a>
+                                <a class="dropdown-item" href="/profile">Profile</a>
                                 <a class="dropdown-item" href="/dashboards">Dashboard</a>
                                 <a class="dropdown-item" href="/logout">Logout</a>
                             </div>
