@@ -26,7 +26,9 @@ Route::get('/news', function () {
 Route::get('/newsdetail', function () {
     return view('blog-detail');
 });
-
+Route::get('/forum', function () {
+    return view('forum');
+});
 // auth
 Route::post('/postregister', 'Auth\RegisterController@store');
 Route::post('/postlogin', 'Auth\LoginController@store');
@@ -40,7 +42,19 @@ Route::group(['middleware' => ['auth', 'CheckRole:user,admin']], function () {
     Route::get('/home', function () {
         return view('home');
     });
+    Route::get('/profile', function () {
+        return view('profile');
+    });
+    Route::get('/forumdetail', function () {
+        return view('forum-detail');
+    });
     Route::get('/prediction', function () {
         return view('dashboard.prediction');
+    });
+    Route::get('/dataprediction', function () {
+        return view('dashboard.dataprediction');
+    });
+    Route::get('/detailprediction', function () {
+        return view('dashboard.detailprediction');
     });
 });
