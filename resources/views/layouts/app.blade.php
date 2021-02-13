@@ -11,23 +11,23 @@
 
     <title>Apus - Cat Health Predictions</title>
 
-    <link rel="stylesheet" href="assets/css/maicons.css">
+    <link rel="stylesheet" href="{{ asset('assets/css/maicons.css') }}">
 
-    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.css') }}">
 
-    <link rel="stylesheet" href="assets/vendor/owl-carousel/css/owl.carousel.css">
+    <link rel="stylesheet" href="{{ asset('assets/vendor/owl-carousel/css/owl.carousel.css') }}">
 
-    <link rel="stylesheet" href="assets/vendor/animate/animate.css">
+    <link rel="stylesheet" href="{{ asset('assets/vendor/animate/animate.css') }}">
 
-    <link rel="stylesheet" href="assets/css/theme.css">
+    <link rel="stylesheet" href="{{ asset('assets/css/theme.css') }}">
       <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="dashboard/plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="{{ asset('dashboard/plugins/fontawesome-free/css/all.min.css') }}">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Theme style -->
-    <link rel="stylesheet" href="dashboard/dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="{{ asset('dashboard/dist/css/adminlte.min.css') }}">
 </head>
 
 <body>
@@ -95,7 +95,7 @@
                         </div>
                         <div class="form-group">
                             <label for="recipient-name" class="col-form-label">Alamat:</label>
-                            <input type="text" name="alamat" class="form-control" id="nama">
+                            <input type="text" name="alamat" class="form-control" id="alamat">
                         </div>
                         <div class="form-group">
                             <label for="recipient-name" class="col-form-label">No Hp:</label>
@@ -119,15 +119,15 @@
 
     @include('layouts.footer')
 
-    <script src="assets/js/jquery-3.5.1.min.js"></script>
+    <script src="{{ asset('assets/js/jquery-3.5.1.min.js') }}"></script>
 
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
 
-    <script src="assets/vendor/owl-carousel/js/owl.carousel.min.js"></script>
+    <script src="{{ asset('assets/vendor/owl-carousel/js/owl.carousel.min.js') }}"></script>
 
-    <script src="assets/vendor/wow/wow.min.js"></script>
+    <script src="{{ asset('assets/vendor/wow/wow.min.js') }}"></script>
 
-    <script src="assets/js/theme.js"></script>
+    <script src="{{ asset('assets/js/theme.js') }}"></script>
 
 </body>
 

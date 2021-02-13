@@ -37,7 +37,7 @@
                                 {{ Auth::user()->username }}
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="/profile">Profile</a>
+                                <a class="dropdown-item" href="/profile/{{auth()->user()->id}}">Profile</a>
                                 <a class="dropdown-item" href="/dashboards">Dashboard</a>
                                 <a class="dropdown-item" href="/logout">Logout</a>
                             </div>
