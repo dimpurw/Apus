@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 
 class ProfileController extends Controller
 {
@@ -68,15 +69,15 @@ class ProfileController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request, [
-            'username' => ['required', 'string', 'max:50'],
-            'email' => ['required', 'string', 'email', 'max:50', 'unique:users'],
-            'alamat' => ['required', 'string', 'max:32']
-        ]);
 
-        $user = \App\User::find($id);
-        $user->update($request->all());
-        return redirect(url('/profile/' . $user->username))->with('success', 'data berhasil diubah');
+        $user = User::find($id);
+        $user->username = $request->username;
+        $user->email = $request->email;
+        $user->alamat = $request->alamat;
+        $user->nohp = $request->nohp;
+        $user->update();
+
+        return redirect('/profile/' . $user->id)->with('sukses', 'Data Berhasil Dibuat');
     }
 
     /**
