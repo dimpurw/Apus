@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="row ml-4 mt-2">
+    <a href="/createforum"><button class="btn btn-primary mb-4">Buat Forum +</button></a>
     <div class="col-12">
         <h4>Forum</h4>
         <div class="post">
