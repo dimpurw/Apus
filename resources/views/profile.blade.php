@@ -40,9 +40,9 @@
               </div>
               <!-- /.card-body -->
             </div>
-            <a class="btn btn-primary ml-lg-3 mb-4" href="#" data-toggle="modal" data-target="#profile" data-whatever="profile">Edit Profile</a>
+            <button id="profile" class="btn btn-primary mb-4" data-toggle="modal" data-target="#profile{{ auth()->user()->id }}" >Edit Profile</button>
             <!-- Edit profile modal -->
-            <div class="modal fade" id="profile" tabindex="-1" role="dialog" aria-labelledby="profile" aria-hidden="true">
+            <div class="modal fade" id="profile{{ auth()->user()->id }}" tabindex="-1" role="dialog" aria-labelledby="profile" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -53,10 +53,10 @@
                         </div>
                         <form method="POST" action="/editprofile/{{auth()->user()->id}}" enctype="multipart/form-data">
                             @csrf
-                            <div class="modal-body">
+                            <div id="modal-edit" class="modal-body">
                                 <div class="form-group">
                                     <label for="recipient-name" class="col-form-label">Username:</label>
-                                    <input type="text" name="username" class="form-control" id="nama" value="{{auth()->user()->username}}">
+                                    <input type="text" name="username" class="form-control" id="username" value="{{auth()->user()->username}}">
                                 </div>
                                 <div class="form-group">
                                     <label for="recipient-name" class="col-form-label">Email:</label>
@@ -73,7 +73,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-primary">Edit Profile</button>
+                                <button type="submit" class="btn btn-primary">Update Profile</button>
                             </div>
                         </form>
                     </div>
@@ -83,14 +83,5 @@
         </div>
     </div>
 </section>
-<script>
-$('#profile').on('show.bs.modal', function (event) {
-  var button = $(event.relatedTarget) // Button that triggered the modal
-  var recipient = button.data('whatever') // Extract info from data-* attributes
-  // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-  // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-  var modal = $(this)
-  modal.find('.modal-body input').val(recipient)
-})
-</script>
+
 @endsection
