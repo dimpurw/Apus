@@ -20,15 +20,9 @@ Route::get('/', function () {
 Route::get('/about', function () {
     return view('about');
 });
-Route::get('/news', function () {
-    return view('blog');
-});
-Route::get('/newsdetail', function () {
-    return view('blog-detail');
-});
-Route::get('/forum', function () {
-    return view('forum');
-});
+Route::get('/blog', 'BlogController@index');
+Route::get('/blogdetail/{id}', 'BlogController@show');
+Route::get('/forum', 'ForumController@index');
 // auth
 Route::post('/postregister', 'Auth\RegisterController@store');
 Route::post('/postlogin', 'Auth\LoginController@store');
@@ -42,12 +36,13 @@ Route::group(['middleware' => ['auth', 'CheckRole:user,admin']], function () {
     Route::get('/home', function () {
         return view('home');
     });
-    Route::get('/profile', function () {
-        return view('profile');
-    });
+    // profile
+    Route::get('/profile/{id}', 'ProfileController@index');
+    Route::post('/editprofile/{id}', 'ProfileController@update');
     Route::get('/forumdetail', function () {
         return view('forum-detail');
     });
+    Route::get('/createforum', 'ForumController@create');
     Route::get('/prediction', function () {
         return view('dashboard.prediction');
     });
@@ -57,4 +52,9 @@ Route::group(['middleware' => ['auth', 'CheckRole:user,admin']], function () {
     Route::get('/detailprediction', function () {
         return view('dashboard.detailprediction');
     });
+});
+
+Route::group(['middleware' => ['auth', 'CheckRole:admin']], function() {
+    Route::get('/createblog', 'BlogController@create');
+    Route::post('/postblog', 'BlogController@store');
 });
