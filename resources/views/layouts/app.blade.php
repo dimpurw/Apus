@@ -28,6 +28,13 @@
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('dashboard/dist/css/adminlte.min.css') }}">
+      <!-- summernote -->
+    <link rel="stylesheet" href="{{ asset('dashboard/plugins/summernote/summernote-bs4.min.css') }}">
+    <!-- CodeMirror -->
+    <link rel="stylesheet" href="{{ asset('dashboard/plugins/codemirror/codemirror.css') }}">
+    <link rel="stylesheet" href="{{ asset('dashboard/plugins/codemirror/theme/monokai.css') }}">
+    <!-- SimpleMDE -->
+    <link rel="stylesheet" href="{{ asset('dashboard/plugins/simplemde/simplemde.min.css') }}">
 </head>
 
 <body>
@@ -128,7 +135,25 @@
     <script src="{{ asset('assets/vendor/wow/wow.min.js') }}"></script>
 
     <script src="{{ asset('assets/js/theme.js') }}"></script>
+    <!-- Summernote -->
+    <script src="{{ asset('dashboard/plugins/summernote/summernote-bs4.min.js') }}"></script>
+    <!-- CodeMirror -->
+    <script src="{{ asset('dashboard/plugins/codemirror/codemirror.js') }}"></script>
+    <script src="{{ asset('dashboard/plugins/codemirror/mode/css/css.js') }}"></script>
+    <script src="{{ asset('dashboard/plugins/codemirror/mode/xml/xml.js') }}"></script>
+    <script src="{{ asset('dashboard/plugins/codemirror/mode/htmlmixed/htmlmixed.js') }}"></script>
+    <script>
+    $(function () {
+        // Summernote
+        $('#summernote').summernote()
 
+        // CodeMirror
+        CodeMirror.fromTextArea(document.getElementById("codeMirrorDemo"), {
+        mode: "htmlmixed",
+        theme: "monokai"
+        });
+    })
+    </script>
 </body>
 
 </html>

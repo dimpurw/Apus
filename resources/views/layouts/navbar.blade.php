@@ -25,7 +25,7 @@
                         <a class="nav-link" href="/about">About Us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/news">News</a>
+                        <a class="nav-link" href="/blog">Blog</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/forum">Forum</a>
