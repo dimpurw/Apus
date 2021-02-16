@@ -108,10 +108,6 @@
                             <label for="recipient-name" class="col-form-label">No Hp:</label>
                             <input type="number" name="nohp" class="form-control" id="nohp">
                         </div>
-                        <div class="form-group">
-                            <label for="recipient-name" class="col-form-label">Foto:</label>
-                            <input type="file" name="foto" class="form-control" id="nohp">
-                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
