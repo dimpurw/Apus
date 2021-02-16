@@ -11,71 +11,56 @@
         <div class="card card-widget">
             <div class="card-header">
             <div class="user-block">
-                <img class="img-circle" src="dashboard/dist/img/user1-128x128.jpg" alt="User Image">
-                <span class="username"><a href="#">Jonathan Burke Jr.</a></span>
-                <span class="description">Shared publicly - 7:30 PM Today</span>
+                <span class="username"><a href="#">{{$forum->user->username}}</a></span>
+                <span class="description">Shared publicly - {{$forum->created_at}}</span>
             </div>
             <!-- /.card-tools -->
             </div>
             <!-- /.card-header -->
             <div class="card-body">
             <!-- post text -->
-            <p>Far far away, behind the word mountains, far from the
-                countries Vokalia and Consonantia, there live the blind
-                texts. Separated they live in Bookmarksgrove right at</p>
-
-            <p>the coast of the Semantics, a large language ocean.
-                A small river named Duden flows by their place and supplies
-                it with the necessary regelialia. It is a paradisematic
-                country, in which roasted parts of sentences fly into
-                your mouth.</p>
-
+            <p>{!!$forum->description!!}</p>
             <!-- Social sharing buttons -->
-            <button type="button" class="btn btn-default btn-sm"><i class="fas fa-share"></i> Share</button>
-            <button type="button" class="btn btn-default btn-sm"><i class="far fa-thumbs-up"></i> Like</button>
-            <span class="float-right text-muted">45 likes - 2 comments</span>
+            <h5 class="card-header">Comments 
+            <span class="comment-count btn btn-sm btn-outline-info"></span>
+            <small class="float-right">
+                <span title="Likes" id="saveLikeDislike" data-type="like" data-post="" class="mr-2 btn btn-sm btn-outline-primary d-inline font-weight-bold">
+                    Like
+                    <span class="like-count">5</span>
+                </span>
+                <span title="Dislikes" id="saveLikeDislike" data-type="dislike" data-type="dislike" data-post="" class="mr-2 btn btn-sm btn-outline-danger d-inline font-weight-bold">
+                    Dislike
+                    <span class="dislike-count">2</span>
+                </span>
+            </small>
+            </h5>
             </div>
             <!-- /.card-body -->
             <div class="card-footer card-comments">
+            @foreach($forum->comment as $comments)
             <div class="card-comment">
                 <!-- User image -->
-                <img class="img-circle img-sm" src="dashboard/dist/img/user3-128x128.jpg" alt="User Image">
-
                 <div class="comment-text">
                 <span class="username">
-                    Maria Gonzales
-                    <span class="text-muted float-right">8:03 PM Today</span>
+                    {{$comments->user->username}}
+                    <span class="text-muted float-right">{{$comments->created_at}}</span>
                 </span><!-- /.username -->
-                It is a long established fact that a reader will be distracted
-                by the readable content of a page when looking at its layout.
+               {{$comments->comment}}
                 </div>
                 <!-- /.comment-text -->
             </div>
-            <!-- /.card-comment -->
-            <div class="card-comment">
-                <!-- User image -->
-                <img class="img-circle img-sm" src="dashboard/dist/img/user5-128x128.jpg" alt="User Image">
-
-                <div class="comment-text">
-                <span class="username">
-                    Nora Havisham
-                    <span class="text-muted float-right">8:03 PM Today</span>
-                </span><!-- /.username -->
-                The point of using Lorem Ipsum is that it hrs a morer-less
-                normal distribution of letters, as opposed to using
-                'Content here, content here', making it look like readable English.
-                </div>
-                <!-- /.comment-text -->
-            </div>
+            @endforeach
             <!-- /.card-comment -->
             </div>
             <!-- /.card-footer -->
             <div class="card-footer">
-            <form action="#" method="post">
-                <img class="img-fluid img-circle img-sm" src="dashboard/dist/img/user4-128x128.jpg" alt="Alt Text">
+            <form action="/postcomment" method="post">
+                @csrf
                 <!-- .img-push is used to add margin to elements next to floating images -->
                 <div class="img-push">
-                <input type="text" class="form-control form-control-sm" placeholder="Press enter to post comment">
+                <input type="text" name="forum_id" value="{{$forum->id}}" hidden>
+                <input type="text" name="user_id" value="{{auth()->user()->id}}" hidden>
+                <input type="text" name="comment" class="form-control form-control-sm" placeholder="Press enter to post comment"><button type="submit" class="btn btn-primary mt-2">kirim</button>
                 </div>
             </form>
             </div>

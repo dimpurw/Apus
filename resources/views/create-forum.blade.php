@@ -11,14 +11,15 @@
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-                <form method="POST" action="/editprofile/{{auth()->user()->id}}" enctype="multipart/form-data">
+                <form method="POST" action="/createforum/{{auth()->user()->id}}" enctype="multipart/form-data">
                     @csrf
                     <div id="modal-edit" class="modal-body">
+                        <input type="text" name="user_id" class="form-control" id="user_id" value="{{auth()->user()->id}}" hidden>
                         <div class="form-group">
-                            <label for="recipient-name" class="col-form-label">Username:</label>
-                            <input type="text" name="username" class="form-control" id="username" value="{{auth()->user()->username}}" readonly>
+                            <label for="recipient-name" class="col-form-label">Title:</label>
+                            <input type="text" name="title" class="form-control" id="title">
                         </div>
-                        <textarea id="summernote">
+                        <textarea id="summernote" name="description">
                         Place <em>some</em> <u>text</u> <strong>here</strong>
                         </textarea>
                     </div>

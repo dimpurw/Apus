@@ -33,7 +33,7 @@
                     </div>
                     <h2 class="post-title h1">{{$blog->title}}</h2>
                     <div class="post-content">
-                        <p>{{$blog->description}}</p>
+                        <p>{!!$blog->description!!}</p>
                     </div>
                 </article> <!-- .blog-details -->
             </div>
