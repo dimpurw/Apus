@@ -39,10 +39,10 @@ Route::group(['middleware' => ['auth', 'CheckRole:user,admin']], function () {
     // profile
     Route::get('/profile/{id}', 'ProfileController@index');
     Route::post('/editprofile/{id}', 'ProfileController@update');
-    Route::get('/forumdetail', function () {
-        return view('forum-detail');
-    });
+    Route::get('/forumdetail/{id}', 'ForumController@show');
     Route::get('/createforum', 'ForumController@create');
+    Route::post('/createforum/{id}', 'ForumController@store');
+    Route::post('/postcomment', 'ForumController@comment');
     Route::get('/prediction', function () {
         return view('dashboard.prediction');
     });
