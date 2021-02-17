@@ -21,7 +21,7 @@
             <!-- post text -->
             <p>{!!$forum->description!!}</p>
             <!-- Social sharing buttons -->
-            <h5 class="card-header">Comments 
+            <!-- <h5 class="card-header">Comments 
             <span class="comment-count btn btn-sm btn-outline-info"></span>
             <small class="float-right">
                 <span title="Likes" id="saveLikeDislike" data-type="like" data-post="" class="mr-2 btn btn-sm btn-outline-primary d-inline font-weight-bold">
@@ -33,7 +33,7 @@
                     <span class="dislike-count">2</span>
                 </span>
             </small>
-            </h5>
+            </h5> -->
             </div>
             <!-- /.card-body -->
             <div class="card-footer card-comments">
