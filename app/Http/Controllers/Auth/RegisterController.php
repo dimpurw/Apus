@@ -16,12 +16,7 @@ class RegisterController extends Controller
             'password' => ['required', 'string', 'min:8', 'max:20'],
             'alamat' => ['required', 'string', 'max:32'],
             'nohp' => ['required', 'min:11', 'max:13', 'regex:/(0)[0-9]{10}/'],
-            'foto' => ['required', 'mimes:jpeg,jpg,png']
         ]);
-
-        if ($request->hasFile('foto')) {
-            $request->file('foto')->move('foto/', $request->file('foto')->getClientOriginalName());
-        }
 
         $user = new \App\User;
         $user->role = 'user';
@@ -30,7 +25,6 @@ class RegisterController extends Controller
         $user->password = bcrypt($request->password);
         $user->alamat = $request->alamat;
         $user->nohp = $request->nohp;
-        $user->foto = $request->file('foto')->getClientOriginalName();
         $user->remember_token = Str::random(60);
         $user->save();
 
