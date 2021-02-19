@@ -13,8 +13,9 @@ class BlogController extends Controller
      */
     public function index()
     {
-        $blog = \App\Blog::paginate(8);
-        return view('blog', ['blog' => $blog]);
+        $blog = \App\Blog::all();
+        $recent = \App\Blog::paginate(3);
+        return view('blog', ['blog' => $blog, 'recent' => $recent]);
     }
 
     /**
@@ -52,7 +53,8 @@ class BlogController extends Controller
     public function show($id)
     {
         $blog = \App\Blog::find($id);
-        return view('blog-detail', ['blog' => $blog]);
+        $recent = \App\Blog::paginate(3);
+        return view('blog-detail', ['blog' => $blog , 'recent' => $recent]);
     }
 
     /**
