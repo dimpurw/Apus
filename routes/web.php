@@ -15,7 +15,8 @@ use Illuminate\Support\Facades\Route;
 
 // views
 Route::get('/', function () {
-    return view('index');
+    $blog = \App\Blog::paginate(3);
+    return view('index',['blog' => $blog]);
 });
 Route::get('/about', function () {
     return view('about');
@@ -34,7 +35,8 @@ Route::group(['middleware' => ['auth', 'CheckRole:user,admin']], function () {
         return view('dashboard.index');
     });
     Route::get('/home', function () {
-        return view('home');
+        $blog = \App\Blog::paginate(3);
+        return view('home',['blog' => $blog]);
     });
     // profile
     Route::get('/profile/{id}', 'ProfileController@index');
