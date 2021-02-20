@@ -16,6 +16,7 @@ class RegisterController extends Controller
             'password' => ['required', 'string', 'min:8', 'max:20'],
             'alamat' => ['required', 'string', 'max:32'],
             'nohp' => ['required', 'min:11', 'max:13', 'regex:/(0)[0-9]{10}/'],
+            'foto' => ['required', 'mimes:jpeg,jpg,png']
         ]);
 
         $user = new \App\User;
@@ -27,6 +28,11 @@ class RegisterController extends Controller
         $user->nohp = $request->nohp;
         $user->remember_token = Str::random(60);
         $user->save();
+        if ($request->hasFile('foto')) {
+            $request->file('foto')->move('foto/', $request->file('foto')->getClientOriginalName());
+            $user->foto = $request->file('foto')->getClientOriginalName();
+            $user->save();
+        }
 
         return redirect('/')->with('sukses', 'Data Berhasil Dibuat');
     }

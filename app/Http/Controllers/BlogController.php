@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class BlogController extends Controller
 {
@@ -14,7 +15,7 @@ class BlogController extends Controller
     public function index()
     {
         $blog = \App\Blog::all();
-        $recent = \App\Blog::paginate(3);
+        $recent = DB::table('blogs')->orderBy('created_at', 'desc')->paginate(3);
         return view('blog', ['blog' => $blog, 'recent' => $recent]);
     }
 
@@ -39,9 +40,14 @@ class BlogController extends Controller
         $blog = new \App\Blog();
         $blog->title = $request->title;
         $blog->description = $request->description;
+        if ($request->hasFile('foto')) {
+            $request->file('foto')->move('blog/', $request->file('foto')->getClientOriginalName());
+            $blog->foto = $request->file('foto')->getClientOriginalName();
+            $blog->save();
+        }
         $blog->save();
 
-        return redirect('/blog')->with('sukses', 'Data Berhasil Dibuat');
+        return redirect('/blogs')->with('sukses', 'Data Berhasil Dibuat');
     }
 
     /**
@@ -53,7 +59,7 @@ class BlogController extends Controller
     public function show($id)
     {
         $blog = \App\Blog::find($id);
-        $recent = \App\Blog::paginate(3);
+        $recent = DB::table('blogs')->orderBy('created_at', 'desc')->paginate(3);
         return view('blog-detail', ['blog' => $blog , 'recent' => $recent]);
     }
 

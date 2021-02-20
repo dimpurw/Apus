@@ -75,6 +75,12 @@ class ProfileController extends Controller
         $user->email = $request->email;
         $user->alamat = $request->alamat;
         $user->nohp = $request->nohp;
+        if ($request->has('foto')) {
+            $foto = $request->file('foto');
+            $filename = $foto->getClientOriginalName();
+            $foto->move(public_path('foto/'), $filename);
+            $user->foto = $request->file('foto')->getClientOriginalName();
+        }
         $user->update();
 
         return redirect('/profile/' . $user->id)->with('sukses', 'Data Berhasil Dibuat');
