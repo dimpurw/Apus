@@ -15,15 +15,18 @@ use Illuminate\Support\Facades\Route;
 
 // views
 Route::get('/', function () {
-    $blog = \App\Blog::paginate(3);
+    $blog = DB::table('blogs')->orderBy('created_at', 'desc')->paginate(3);
     return view('index',['blog' => $blog]);
 });
 Route::get('/about', function () {
     return view('about');
 });
-Route::get('/blog', 'BlogController@index');
+Route::get('/blogs', 'BlogController@index');
 Route::get('/blogdetail/{id}', 'BlogController@show');
 Route::get('/forum', 'ForumController@index');
+Route::get('/image', function () {
+    return view('image');
+});
 // auth
 Route::post('/postregister', 'Auth\RegisterController@store');
 Route::post('/postlogin', 'Auth\LoginController@store');
@@ -35,7 +38,7 @@ Route::group(['middleware' => ['auth', 'CheckRole:user,admin']], function () {
         return view('dashboard.index');
     });
     Route::get('/home', function () {
-        $blog = \App\Blog::paginate(3);
+        $blog = DB::table('blogs')->orderBy('created_at', 'desc')->paginate(3);
         return view('home',['blog' => $blog]);
     });
     // profile
