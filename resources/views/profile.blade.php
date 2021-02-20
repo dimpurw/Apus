@@ -6,11 +6,14 @@
         <div class="row md-3">
             <div class="col-12">
             <!-- About Me Box -->
+            <div class="d-flex justify-content-center align-items-center p-5" style="height: 200px;">
+                <img src="{{auth()->user()->getFoto()}}" alt="Tidak ada foto" class="img-circle img-responsive center-block" style="width:10%">
+            </div>
             <div class="card card-primary">
               <div class="card-header">
                 <h3 class="card-title">Profile Saya</h3>
               </div>
-              <!-- /.card-header -->
+              <!-- /.card-header --> 
               <div class="card-body">
                 <strong><i class="fas fa-user mr-1"></i> Username</strong>
 
@@ -69,6 +72,10 @@
                                 <div class="form-group">
                                     <label for="recipient-name" class="col-form-label">No Hp:</label>
                                     <input type="number" name="nohp" class="form-control" id="nohp" value="{{auth()->user()->nohp}}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="recipient-name" class="col-form-label">Foto:</label>
+                                    <input id="foto" type="file" name="foto">
                                 </div>
                             </div>
                             <div class="modal-footer">

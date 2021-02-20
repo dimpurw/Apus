@@ -9,7 +9,7 @@
                 <nav aria-label="Breadcrumb">
                     <ol class="breadcrumb bg-transparent py-0 mb-5">
                         <li class="breadcrumb-item"><a href="/home">Home</a></li>
-                        <li class="breadcrumb-item"><a href="/blog">Blog</a></li>
+                        <li class="breadcrumb-item"><a href="/blogs">Blog</a></li>
                         <li class="breadcrumb-item active" aria-current="page">{{$blog->title}}</li>
                     </ol>
                 </nav>
@@ -20,7 +20,7 @@
             <div class="col-lg-8">
                 <article class="blog-details">
                     <div class="post-thumb">
-                        <img src="../assets/img/blog/blog_1.jpg" alt="">
+                        <img src="{{ asset('blog/' . $blog->foto) }}" alt="">
                     </div>
                     <div class="post-meta">
                         <div class="post-author">
@@ -40,45 +40,17 @@
             <div class="col-lg-4">
                     <div class="sidebar-block">
                         <h3 class="sidebar-title">Recent Blog</h3>
+                        @foreach($recent as $recents)
                         <div class="blog-item">
-                            <a class="post-thumb" href="">
-                                <img src="../assets/img/blog/blog_1.jpg" alt="">
-                            </a>
                             <div class="content">
-                                <h5 class="post-title"><a href="#">Even the all-powerful Pointing has no control</a></h5>
+                                <h5 class="post-title"><a href="/blogdetail/{{$recents->id}}">{{$recents->title}}</a></h5>
                                 <div class="meta">
-                                    <a href="#"><span class="mai-calendar"></span> July 12, 2018</a>
+                                    <a href="#"><span class="mai-calendar"></span>{{$recents->created_at}}</a>
                                     <a href="#"><span class="mai-person"></span> Admin</a>
-                                    <a href="#"><span class="mai-chatbubbles"></span> 19</a>
                                 </div>
                             </div>
                         </div>
-                        <div class="blog-item">
-                            <a class="post-thumb" href="">
-                                <img src="../assets/img/blog/blog_2.jpg" alt="">
-                            </a>
-                            <div class="content">
-                                <h5 class="post-title"><a href="#">Even the all-powerful Pointing has no control</a></h5>
-                                <div class="meta">
-                                    <a href="#"><span class="mai-calendar"></span> July 12, 2018</a>
-                                    <a href="#"><span class="mai-person"></span> Admin</a>
-                                    <a href="#"><span class="mai-chatbubbles"></span> 19</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="blog-item">
-                            <a class="post-thumb" href="">
-                                <img src="../assets/img/blog/blog_3.jpg" alt="">
-                            </a>
-                            <div class="content">
-                                <h5 class="post-title"><a href="#">Even the all-powerful Pointing has no control</a></h5>
-                                <div class="meta">
-                                    <a href="#"><span class="mai-calendar"></span> July 12, 2018</a>
-                                    <a href="#"><span class="mai-person"></span> Admin</a>
-                                    <a href="#"><span class="mai-chatbubbles"></span> 19</a>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                     <div class="sidebar-block">
                         <h3 class="sidebar-title">Paragraph</h3>

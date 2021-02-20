@@ -18,6 +18,10 @@
                             <label for="recipient-name" class="col-form-label">Judul Blog:</label>
                             <input type="text" name="title" class="form-control" id="title">
                         </div>
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">Foto:</label>
+                            <input id="foto" type="file" name="foto">
+                        </div>
                         <textarea id="summernote" name="description">
                         Place <em>some</em> <u>text</u> <strong>here</strong>
                         </textarea>
