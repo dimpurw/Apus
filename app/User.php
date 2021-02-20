@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'username', 'email', 'alamat', 'nohp', 'password', 'role',
+        'username', 'email', 'alamat', 'nohp', 'password', 'role', 'foto',
     ];
 
     /**
@@ -37,6 +37,14 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function getFoto()
+    {
+        if (!$this->foto) {
+            return asset('dashboard/dist/img/user1-128x128.jpg');
+        }
+        return asset('foto/' . $this->foto);
+    }
+    
     public function forum()
     {
         return $this->hasMany('App\Forum');

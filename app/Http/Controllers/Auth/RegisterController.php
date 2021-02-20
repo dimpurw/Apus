@@ -27,12 +27,12 @@ class RegisterController extends Controller
         $user->alamat = $request->alamat;
         $user->nohp = $request->nohp;
         $user->remember_token = Str::random(60);
-        $user->save();
         if ($request->hasFile('foto')) {
             $request->file('foto')->move('foto/', $request->file('foto')->getClientOriginalName());
             $user->foto = $request->file('foto')->getClientOriginalName();
             $user->save();
         }
+        $user->save();
 
         return redirect('/')->with('sukses', 'Data Berhasil Dibuat');
     }
