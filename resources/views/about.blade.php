@@ -53,23 +53,23 @@
           <div class="circle-shape bg-secondary text-white">
             <span class="mai-chatbubbles-outline"></span>
           </div>
-          <p><span>Forum</span> share questions and experiences</p>
-        </div>
-      </div>
-      <div class="col-md-4 py-3 wow zoomIn">
-        <div class="card-service">
-          <div class="circle-shape bg-primary text-white">
-            <span class="mai-shield-checkmark"></span>
+          <p><span>Forum</span>Diskusi</p>
           </div>
-          <p><span>Cat</span> disease prediction</p>
         </div>
-      </div>
-      <div class="col-md-4 py-3 wow zoomIn">
-        <div class="card-service">
-          <div class="circle-shape bg-accent text-white">
-            <span class="mai-basket"></span>
+        <div class="col-md-4 py-3 py-md-0">
+          <div class="card-service wow fadeInUp">
+            <div class="circle-shape bg-primary text-white">
+              <span class="mai-shield-checkmark"></span>
+            </div>
+            <p><span>Jaga</span>Kesehatan Kucing</p>
           </div>
-          <p><span>News</span> about cat disease</p>
+        </div>
+        <div class="col-md-4 py-3 py-md-0">
+          <div class="card-service wow fadeInUp">
+            <div class="circle-shape bg-accent text-white">
+              <span class="mai-basket"></span>
+            </div>
+            <p><span>Berita</span>Seputar Kucing</p>
         </div>
       </div>
     </div>

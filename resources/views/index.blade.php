@@ -5,9 +5,9 @@
 <div class="page-hero bg-image overlay-dark" style="background-image: url(assets/img/bg-apus.png);">
   <div class="hero-section">
     <div class="container text-center wow zoomIn">
-      <span class="subhead">Ayoo berbagi informasi mengenai perawatan kucing</span>
-      <h1 class="display-4">Dan tanyakan di forum jika anda butuh bantuan</h1>
-      <a href="/forum" class="btn btn-primary">GO FORUM</a>
+      <span class="subhead">Berbagi Informasi</span>
+      <h1 class="display-4"> Mengenai Kucing</h1>
+      <a href="/forum" class="btn btn-primary">Go Forum</a>
     </div>
   </div>
 </div>
@@ -21,7 +21,7 @@
             <div class="circle-shape bg-secondary text-white">
               <span class="mai-chatbubbles-outline"></span>
             </div>
-            <p><span>Forum</span> share questions and experiences</p>
+            <p><span>Forum</span>Diskusi</p>
           </div>
         </div>
         <div class="col-md-4 py-3 py-md-0">
@@ -29,7 +29,7 @@
             <div class="circle-shape bg-primary text-white">
               <span class="mai-shield-checkmark"></span>
             </div>
-            <p><span>Cat</span> disease prediction</p>
+            <p><span>Jaga</span>Kesehatan Kucing</p>
           </div>
         </div>
         <div class="col-md-4 py-3 py-md-0">
@@ -37,7 +37,7 @@
             <div class="circle-shape bg-accent text-white">
               <span class="mai-basket"></span>
             </div>
-            <p><span>News</span> about cat disease</p>
+            <p><span>Berita</span>Seputar Kucing</p>
           </div>
         </div>
       </div>
@@ -49,8 +49,8 @@
       <div class="row align-items-center">
         <div class="col-lg-6 py-3 wow fadeInUp">
           <h1>Welcome to Apus</h1>
-          <p class="text-grey mb-4">Apus is a website to view skin diseases in cats from the predictions that have been provided on this website and there is also a forum to share with others, and there are articles on this website about cat diseases and others</p>
-          <a href="about.html" class="btn btn-primary">Learn More</a>
+          <p class="text-grey mb-4">Apus adalah website untuk berbagi informasi mengenai kucing dan juga terdapat blog untuk melihat informasi terkait kucing</p>
+          <a href="/about" class="btn btn-primary">Learn More</a>
         </div>
         <div class="col-lg-6 wow fadeInRight" data-wow-delay="400ms">
           <div class="img-place custom-img-1">
@@ -81,7 +81,7 @@
                 <div class="avatar-img">
                   <img src="dashboard/dist/img/user1-128x128.jpg" alt="">
                 </div>
-                <span>Roger Adams</span>
+                <span>Admin</span>
               </div>
               <span class="mai-time"></span>{{$blogs->created_at}}
             </div>

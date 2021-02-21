@@ -7,7 +7,7 @@
         <div class="container text-center wow zoomIn">
         <span class="subhead">Ayoo berbagi informasi mengenai perawatan kucing</span>
         <h1 class="display-4">Dan tanyakan di forum jika anda butuh bantuan</h1>
-        <a href="/forum" class="btn btn-primary">GO FORUM</a>
+        <a href="/forum" class="btn btn-primary">Go Forum</a>
         </div>
     </div>
 </div>
@@ -21,23 +21,23 @@
                         <div class="circle-shape bg-secondary text-white">
                             <span class="mai-chatbubbles-outline"></span>
                         </div>
-                        <p><span>Forum</span>berbagi informasi dan user lain mengenai kucing</p>
+                        <p><span>Forum</span>Diskusi</p>
+                      </div>
                     </div>
-                </div>
-                <div class="col-md-4 py-3 py-md-0">
-                    <div class="card-service wow fadeInUp">
+                    <div class="col-md-4 py-3 py-md-0">
+                      <div class="card-service wow fadeInUp">
                         <div class="circle-shape bg-primary text-white">
-                            <span class="mai-shield-checkmark"></span>
+                          <span class="mai-shield-checkmark"></span>
                         </div>
-                        <p><span>Cat</span>jaga kesehatan kucing anda</p>
+                        <p><span>Jaga</span>Kesehatan Kucing</p>
+                      </div>
                     </div>
-                </div>
-                <div class="col-md-4 py-3 py-md-0">
-                    <div class="card-service wow fadeInUp">
+                    <div class="col-md-4 py-3 py-md-0">
+                      <div class="card-service wow fadeInUp">
                         <div class="circle-shape bg-accent text-white">
-                            <span class="mai-basket"></span>
+                          <span class="mai-basket"></span>
                         </div>
-                        <p><span>Blog</span>berbagai informasi mengenai kucing</p>
+                        <p><span>Berita</span>Seputar Kucing</p>
                     </div>
                 </div>
             </div>
@@ -81,7 +81,7 @@
                 <div class="avatar-img">
                   <img src="dashboard/dist/img/user1-128x128.jpg" alt="">
                 </div>
-                <span>Roger Adams</span>
+                <span>Admin</span>
               </div>
               <span class="mai-time"></span>{{$blogs->created_at}}
             </div>
