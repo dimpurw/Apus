@@ -80,7 +80,7 @@
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-lg-8 wow fadeInUp">
-        <h1 class="text-center mb-3">Welcome to Your Health Center</h1>
+        <h1 class="text-center mb-3">Welcome to Apus</h1>
         <div class="text-lg">
           <p>Apus adalah website yang membantu kita dalam mencari informasi mengenai kucing, website ini sangat berguna bagi anda yang memelihara kucing untuk mengetahui informasi tentang kucng</p>
           <p>Dan juga di website ini tersedia forum untuk diskusi sesama user untuk berbagi informasi supaya pengetahuan kita tentang merawat kucing lebih banyak lagi</p>

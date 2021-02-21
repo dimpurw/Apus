@@ -16,11 +16,11 @@
                     <div id="modal-edit" class="modal-body">
                         <input type="text" name="user_id" class="form-control" id="user_id" value="{{auth()->user()->id}}" hidden>
                         <div class="form-group">
-                            <label for="recipient-name" class="col-form-label">Title:</label>
+                            <label for="recipient-name" class="col-form-label">Judul:</label>
                             <input type="text" name="title" class="form-control" id="title">
                         </div>
                         <textarea id="summernote" name="description">
-                        Place <em>some</em> <u>text</u> <strong>here</strong>
+                        buatlah<em>pertanyaan</em> <u>mengenai</u> <strong>kucing</strong>
                         </textarea>
                     </div>
                     <div class="modal-footer">
