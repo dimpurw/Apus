@@ -13,30 +13,24 @@
                     <li><a href="#">Terms & Condition</a></li>
                     <li><a href="#">Privacy</a></li>
                     <li><a href="#">Advertise</a></li>
-                    <li><a href="#">Join as Doctors</a></li>
                 </ul>
             </div>
             <div class="col-sm-6 col-lg-3 py-3">
-                <h5>Our partner</h5>
+                <h5>Menu</h5>
                 <ul class="footer-menu">
-                    <li><a href="#">One-Fitness</a></li>
-                    <li><a href="#">One-Drugs</a></li>
-                    <li><a href="#">One-Live</a></li>
+                    <li><a href="/blogs">Blog</a></li>
+                    <li><a href="/forum">Forum</a></li>
                 </ul>
             </div>
             <div class="col-sm-6 col-lg-3 py-3">
                 <h5>Contact</h5>
-                <p class="footer-link mt-2">351 Willow Street Franklin, MA 02038</p>
-                <a href="#" class="footer-link">701-573-7582</a>
-                <a href="#" class="footer-link">healthcare@temporary.net</a>
+                <p class="footer-link mt-2">Dimas Pratama P.</p>
+                <a href="#" class="footer-link">dimasxxxw@gmail.com</a>
 
                 <h5 class="mt-3">Social Media</h5>
                 <div class="footer-sosmed mt-3">
-                    <a href="#" target="_blank"><span class="mai-logo-facebook-f"></span></a>
-                    <a href="#" target="_blank"><span class="mai-logo-twitter"></span></a>
-                    <a href="#" target="_blank"><span class="mai-logo-google-plus-g"></span></a>
-                    <a href="#" target="_blank"><span class="mai-logo-instagram"></span></a>
-                    <a href="#" target="_blank"><span class="mai-logo-linkedin"></span></a>
+                    <a href="https://www.facebook.com/dimas.purw.96" target="_blank"><span class="mai-logo-facebook-f"></span></a>
+                    <a href="https://www.instagram.com/dimpurw/" target="_blank"><span class="mai-logo-instagram"></span></a>
                 </div>
             </div>
         </div>

@@ -9,7 +9,7 @@
 
     <meta name="copyright" content="MACode ID, https://macodeid.com/">
 
-    <title>Apus - Cat Health Predictions</title>
+    <title>Apus</title>
 
     <link rel="stylesheet" href="{{ asset('assets/css/maicons.css') }}">
 
