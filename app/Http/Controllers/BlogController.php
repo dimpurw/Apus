@@ -14,7 +14,7 @@ class BlogController extends Controller
      */
     public function index()
     {
-        $blog = \App\Blog::all();
+        $blog = \App\Blog::all()->sortByDesc('created_at');
         $recent = DB::table('blogs')->orderBy('created_at', 'desc')->paginate(3);
         return view('blog', ['blog' => $blog, 'recent' => $recent]);
     }
