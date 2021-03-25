@@ -32,7 +32,8 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <table id="example2" class="table table-bordered table-hover">
+              <a href="/dataprediction/export_excel" class="btn btn-success my-3" target="_blank">EXPORT EXCEL</a>
+                <table id="example2" class="table table-bordered table-hover" style="width:100%">
                   <thead>
                   <tr>
                     <th>Nama Kucing</th>
@@ -42,85 +43,17 @@
                   </tr>
                   </thead>
                   <tbody>
+                    @foreach($rekap as $rekaps)
                     <tr>
-                        <td>Trident</td>
-                        <td>Internet
-                        Explorer 4.0</td>
-                        <td>Win 95+</td>
-                        <td> 4</td>
-                    </tr>
-                    <tr>
-                        <td>Trident</td>
-                        <td>Internet
-                        Explorer 4.0
+                        <td>{{$rekaps->nama_kucing}}</td>
+                        <td>{{$rekaps->jenis_penyakit}}</td>
+                        <td>{{$rekaps->presentase}}</td>
+                        <td><button type="button" class="btn btn-primary"><i class="far fa-eye"></i></button>
+                            <button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button>
+                            <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
                         </td>
-                        <td>Win 95+</td>
-                        <td> 4</td>
                     </tr>
-                    <tr>
-                        <td>Trident</td>
-                        <td>Internet
-                        Explorer 4.0
-                        </td>
-                        <td>Win 95+</td>
-                        <td> 4</td>
-                    </tr>
-                    <tr>
-                        <td>Trident</td>
-                        <td>Internet
-                        Explorer 4.0
-                        </td>
-                        <td>Win 95+</td>
-                        <td> 4</td>
-                    </tr>
-                    <tr>
-                        <td>Trident</td>
-                        <td>Internet
-                        Explorer 4.0
-                        </td>
-                        <td>Win 95+</td>
-                        <td> 4</td>
-                    </tr>
-                    <tr>
-                        <td>Trident</td>
-                        <td>Internet
-                        Explorer 4.0
-                        </td>
-                        <td>Win 95+</td>
-                        <td> 4</td>
-                    </tr>
-                    <tr>
-                        <td>Trident</td>
-                        <td>Internet
-                        Explorer 4.0
-                        </td>
-                        <td>Win 95+</td>
-                        <td> 4</td>
-                    </tr>
-                    <tr>
-                        <td>Trident</td>
-                        <td>Internet
-                        Explorer 4.0
-                        </td>
-                        <td>Win 95+</td>
-                        <td> 4</td>
-                    </tr>
-                    <tr>
-                        <td>Trident</td>
-                        <td>Internet
-                        Explorer 4.0
-                        </td>
-                        <td>Win 95+</td>
-                        <td> 4</td>
-                    </tr>
-                    <tr>
-                        <td>Trident</td>
-                        <td>Internet
-                        Explorer 4.0
-                        </td>
-                        <td>Win 95+</td>
-                        <td> 4</td>
-                    </tr>
+                    @endforeach
                   </tbody>
                 </table>
               </div>

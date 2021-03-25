@@ -26,6 +26,9 @@
     <link rel="stylesheet" href="{{ asset('dashboard/plugins/daterangepicker/daterangepicker.css') }}">
     <!-- summernote -->
     <link rel="stylesheet" href="{{ asset('dashboard/plugins/summernote/summernote-bs4.min.css') }}">
+    <!-- Datatables -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css">
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -79,6 +82,10 @@
     <script src="{{ asset('dashboard/plugins/flot/plugins/jquery.flot.resize.js') }}"></script>
     <!-- FLOT PIE PLUGIN - also used to draw donut charts -->
     <script src="{{ asset('dashboard/plugins/flot/plugins/jquery.flot.pie.js') }}"></script>
+    <!-- Datatables -->
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
     <script>
     $(function () {
         /*
@@ -136,6 +143,11 @@
         + '<br>'
         + Math.round(series.percent) + '%</div>'
     }
+</script>
+<script
+>$(document).ready(function() {
+    $('#example2').DataTable();
+} );
 </script>
 </body>
 
