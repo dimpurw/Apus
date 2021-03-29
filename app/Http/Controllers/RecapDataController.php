@@ -4,9 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Exports\RecapDataExport;
-use Maatwebsite\Excel\Facades\Excel;
-
 class RecapDataController extends Controller
 {
     /**
@@ -20,10 +17,6 @@ class RecapDataController extends Controller
         return view('dashboard.dataprediction', ['rekap' => $rekap]);
     }
 
-    public function export_excel()
-	{
-		return Excel::download(new RecapDataExport, 'recapdata.xlsx');
-	}
     /**
      * Show the form for creating a new resource.
      *
