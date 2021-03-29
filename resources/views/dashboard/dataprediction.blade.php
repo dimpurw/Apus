@@ -32,8 +32,7 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-              <a href="/dataprediction/export_excel" class="btn btn-success my-3" target="_blank">EXPORT EXCEL</a>
-                <table id="example2" class="table table-bordered table-hover" style="width:100%">
+                <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
                   <thead>
                   <tr>
                     <th>Nama Kucing</th>
