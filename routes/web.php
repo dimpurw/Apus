@@ -52,7 +52,6 @@ Route::group(['middleware' => ['auth', 'CheckRole:user,admin']], function () {
         return view('dashboard.prediction');
     });
     Route::get('/dataprediction', 'RecapDataController@index');
-    Route::get('/dataprediction/export_excel', 'RecapDataController@export_excel');
     Route::get('/detailprediction', function () {
         return view('dashboard.detailprediction');
     });
