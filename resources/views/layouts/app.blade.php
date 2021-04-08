@@ -85,32 +85,56 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form method="POST" action="postregister" enctype="multipart/form-data">
+                <form method="POST" enctype="multipart/form-data" id="form-register">
                     @csrf
                     <div class="modal-body">
-                        <div class="form-group">
-                            <label for="recipient-name" class="col-form-label">Username:</label>
-                            <input type="text" name="username" class="form-control" id="nama">
-                        </div>
-                        <div class="form-group">
-                            <label for="recipient-name" class="col-form-label">Email:</label>
-                            <input type="email" name="email" class="form-control" id="email">
-                        </div>
-                        <div class="form-group">
-                            <label for="message-text" class="col-form-label">Password:</label>
-                            <input type="password" name="password" class="form-control" id="password"></input>
-                        </div>
-                        <div class="form-group">
-                            <label for="recipient-name" class="col-form-label">Alamat:</label>
-                            <input type="text" name="alamat" class="form-control" id="alamat">
-                        </div>
-                        <div class="form-group">
-                            <label for="recipient-name" class="col-form-label">No Hp:</label>
-                            <input type="number" name="nohp" class="form-control" id="nohp">
-                        </div>
-                        <div class="form-group">
-                            <label for="recipient-name" class="col-form-label">Foto:</label>
-                            <input id="foto" type="file" name="foto">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="username" class="col-form-label">Username:</label>
+                                    <input type="text" name="username" class="form-control" value="{{ old('username') }}"  autocomplete="username" autofocus id="username">
+                                    <span class="invalid-feedback" role="alert" id="usernameError">
+                                        <strong></strong>
+                                    </span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email" class="col-form-label">Email:</label>
+                                    <input type="email" name="email" class="form-control" value="{{ old('email') }}"  autocomplete="email" autofocus id="email">
+                                    <span class="invalid-feedback" role="alert" id="emailError">
+                                        <strong></strong>
+                                    </span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="password" class="col-form-label">Password:</label>
+                                    <input type="password" name="password" class="form-control" value="{{ old('password') }}"  autocomplete="password" autofocus id="password">
+                                    <span class="invalid-feedback" role="alert" id="passwordError">
+                                        <strong></strong>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="alamat" class="col-form-label">Alamat:</label>
+                                    <input type="text" name="alamat" class="form-control" value="{{ old('alamat') }}"  autocomplete="alamat" autofocus id="alamat">
+                                    <span class="invalid-feedback" role="alert" id="alamatError">
+                                        <strong></strong>
+                                    </span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="nohp" class="col-form-label">No Hp:</label>
+                                    <input type="number" name="nohp" class="form-control" value="{{ old('nohp') }}"  autocomplete="nohp" autofocus id="nohp">
+                                    <span class="invalid-feedback" role="alert" id="nohpError">
+                                        <strong></strong>
+                                    </span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="foto" class="col-form-label" value="{{ old('foto') }}"  autocomplete="foto" autofocus>Foto:</label>
+                                    <input id="foto" type="file" name="foto">
+                                    <span class="invalid-feedback" role="alert" id="fotoError">
+                                        <strong></strong>
+                                    </span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -174,16 +198,55 @@
     <script src="{{ asset('dashboard/plugins/codemirror/mode/xml/xml.js') }}"></script>
     <script src="{{ asset('dashboard/plugins/codemirror/mode/htmlmixed/htmlmixed.js') }}"></script>
     <script>
-    $(function () {
-        // Summernote
-        $('#summernote').summernote()
+        $(function () {
+            // Summernote
+            $('#summernote').summernote()
 
-        // CodeMirror
-        CodeMirror.fromTextArea(document.getElementById("codeMirrorDemo"), {
-        mode: "htmlmixed",
-        theme: "monokai"
+            // CodeMirror
+            CodeMirror.fromTextArea(document.getElementById("codeMirrorDemo"), {
+            mode: "htmlmixed",
+            theme: "monokai"
+            });
+        })
+    </script>
+    @if($errors->has('email') || $errors->has('password'))
+    <script>
+        $(function() {
+            $('#login').modal({
+                show: true
+            });
         });
-    })
+    </script>
+    @endif
+    <script>
+        $(function () {
+            $('#form-register').submit(function (e) {
+                e.preventDefault();
+                let formData = $(this).serializeArray();
+                $(".invalid-feedback").children("strong").text("");
+                $("#form-register input").removeClass("is-invalid");
+                $.ajax({
+                    method: "POST",
+                    headers: {
+                        Accept: "application/json"
+                    },
+                    url: "/postregister",
+                    data: formData,
+                    success: () => window.location.assign("/home"),
+                    error: (response) => {
+                        if(response.status === 422) {
+                            let errors = response.responseJSON.errors;
+                            Object.keys(errors).forEach(function (key) {
+                                $("#" + key + "Input").addClass("is-invalid");
+                                $("#" + key + "Error").children("strong").text(errors[key][0]);
+                            });
+                        } else {
+                            window.location.reload();
+                        }
+                    }
+                })
+            });
+        })
     </script>
 </body>
 
