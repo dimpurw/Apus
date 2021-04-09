@@ -92,21 +92,21 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="username" class="col-form-label">Username:</label>
-                                    <input type="text" name="username" class="form-control" value="{{ old('username') }}"  autocomplete="username" autofocus id="username">
+                                    <input type="text" name="username" class="form-control" value="{{ old('username') }}"  autocomplete="username" autofocus id="usernameInput">
                                     <span class="invalid-feedback" role="alert" id="usernameError">
                                         <strong></strong>
                                     </span>
                                 </div>
                                 <div class="form-group">
                                     <label for="email" class="col-form-label">Email:</label>
-                                    <input type="email" name="email" class="form-control" value="{{ old('email') }}"  autocomplete="email" autofocus id="email">
+                                    <input type="email" name="email" class="form-control" value="{{ old('email') }}"  autocomplete="email" autofocus id="emailInput">
                                     <span class="invalid-feedback" role="alert" id="emailError">
                                         <strong></strong>
                                     </span>
                                 </div>
                                 <div class="form-group">
                                     <label for="password" class="col-form-label">Password:</label>
-                                    <input type="password" name="password" class="form-control" value="{{ old('password') }}"  autocomplete="password" autofocus id="password">
+                                    <input type="password" name="password" class="form-control" value="{{ old('password') }}"  autocomplete="password" autofocus id="passwordInput">
                                     <span class="invalid-feedback" role="alert" id="passwordError">
                                         <strong></strong>
                                     </span>
@@ -115,21 +115,21 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="alamat" class="col-form-label">Alamat:</label>
-                                    <input type="text" name="alamat" class="form-control" value="{{ old('alamat') }}"  autocomplete="alamat" autofocus id="alamat">
+                                    <input type="text" name="alamat" class="form-control" value="{{ old('alamat') }}"  autocomplete="alamat" autofocus id="alamatInput">
                                     <span class="invalid-feedback" role="alert" id="alamatError">
                                         <strong></strong>
                                     </span>
                                 </div>
                                 <div class="form-group">
                                     <label for="nohp" class="col-form-label">No Hp:</label>
-                                    <input type="number" name="nohp" class="form-control" value="{{ old('nohp') }}"  autocomplete="nohp" autofocus id="nohp">
+                                    <input type="number" name="nohp" class="form-control" value="{{ old('nohp') }}"  autocomplete="nohp" autofocus id="nohpInput">
                                     <span class="invalid-feedback" role="alert" id="nohpError">
                                         <strong></strong>
                                     </span>
                                 </div>
                                 <div class="form-group">
-                                    <label for="foto" class="col-form-label" value="{{ old('foto') }}"  autocomplete="foto" autofocus>Foto:</label>
-                                    <input id="foto" type="file" name="foto">
+                                    <label for="foto" class="col-form-label">Foto:</label>
+                                    <input id="fotoInput" type="file" name="foto">
                                     <span class="invalid-feedback" role="alert" id="fotoError">
                                         <strong></strong>
                                     </span>
@@ -222,7 +222,7 @@
         $(function () {
             $('#form-register').submit(function (e) {
                 e.preventDefault();
-                let formData = $(this).serializeArray();
+                let formData = new FormData(this);
                 $(".invalid-feedback").children("strong").text("");
                 $("#form-register input").removeClass("is-invalid");
                 $.ajax({
@@ -230,9 +230,12 @@
                     headers: {
                         Accept: "application/json"
                     },
-                    url: "/postregister",
+                    url: '{{url("postregister")}}',
+                    cache:false,
+                    contentType: false,
+                    processData: false,
                     data: formData,
-                    success: () => window.location.assign("/home"),
+                    success: () => window.location.assign("/"),
                     error: (response) => {
                         if(response.status === 422) {
                             let errors = response.responseJSON.errors;
