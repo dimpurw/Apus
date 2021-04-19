@@ -70,6 +70,14 @@ class ProfileController extends Controller
     public function update(Request $request, $id)
     {
 
+        $this->validate($request, [
+            'username' => ['required', 'string', 'max:50'],
+            'email' => ['required', 'string', 'email', 'max:50', 'unique:users'],
+            'alamat' => ['required', 'string', 'max:32'],
+            'nohp' => ['required', 'min:11', 'max:13', 'regex:/(0)[0-9]{10}/'],
+            'foto' => ['required', 'mimes:jpeg,jpg,png']
+        ]);
+
         $user = User::find($id);
         $user->username = $request->username;
         $user->email = $request->email;
