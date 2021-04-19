@@ -58,24 +58,39 @@
                             @csrf
                             <div id="modal-edit" class="modal-body">
                                 <div class="form-group">
-                                    <label for="recipient-name" class="col-form-label">Username:</label>
-                                    <input type="text" name="username" class="form-control" id="username" value="{{auth()->user()->username}}">
+                                    <label for="username" class="col-form-label">Username:</label>
+                                    <input type="text" name="username" class="form-control" value="{{ old('username') }}"  autocomplete="username" autofocus id="usernameInput">
+                                    <span class="invalid-feedback" role="alert" id="usernameError">
+                                        <strong></strong>
+                                    </span>
                                 </div>
                                 <div class="form-group">
-                                    <label for="recipient-name" class="col-form-label">Email:</label>
-                                    <input type="email" name="email" class="form-control" id="email" value="{{auth()->user()->email}}">
+                                    <label for="email" class="col-form-label">Email:</label>
+                                    <input type="email" name="email" class="form-control" value="{{ old('email') }}"  autocomplete="email" autofocus id="emailInput">
+                                    <span class="invalid-feedback" role="alert" id="emailError">
+                                        <strong></strong>
+                                    </span>
                                 </div>
                                 <div class="form-group">
-                                    <label for="recipient-name" class="col-form-label">Alamat:</label>
-                                    <input type="text" name="alamat" class="form-control" id="alamat" value="{{auth()->user()->alamat}}">
+                                    <label for="alamat" class="col-form-label">Alamat:</label>
+                                    <input type="text" name="alamat" class="form-control" value="{{ old('alamat') }}"  autocomplete="alamat" autofocus id="alamatInput">
+                                    <span class="invalid-feedback" role="alert" id="alamatError">
+                                        <strong></strong>
+                                    </span>
                                 </div>
                                 <div class="form-group">
-                                    <label for="recipient-name" class="col-form-label">No Hp:</label>
-                                    <input type="number" name="nohp" class="form-control" id="nohp" value="{{auth()->user()->nohp}}">
+                                    <label for="nohp" class="col-form-label">No Hp:</label>
+                                    <input type="number" name="nohp" class="form-control" value="{{ old('nohp') }}"  autocomplete="nohp" autofocus id="nohpInput">
+                                    <span class="invalid-feedback" role="alert" id="nohpError">
+                                        <strong></strong>
+                                    </span>
                                 </div>
                                 <div class="form-group">
-                                    <label for="recipient-name" class="col-form-label">Foto:</label>
-                                    <input id="foto" type="file" name="foto">
+                                    <label for="foto" class="col-form-label">Foto:</label>
+                                    <input id="fotoInput" type="file" name="foto">
+                                    <span class="invalid-feedback" role="alert" id="fotoError">
+                                        <strong></strong>
+                                    </span>
                                 </div>
                             </div>
                             <div class="modal-footer">
