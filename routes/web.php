@@ -33,7 +33,7 @@ Route::post('/postlogin', 'Auth\LoginController@store');
 Route::get('/logout', 'Auth\LoginController@logout');
 
 // home 
-Route::group(['middleware' => ['auth', 'CheckRole:user,admin']], function () {
+Route::group(['middleware' => ['auth', 'CheckRole:User,Subscriber,Admin']], function () {
     Route::get('/dashboards', function () {
         return view('dashboard.index');
     });
@@ -44,10 +44,16 @@ Route::group(['middleware' => ['auth', 'CheckRole:user,admin']], function () {
     // profile
     Route::get('/profile/{id}', 'ProfileController@index');
     Route::post('/editprofile/{id}', 'ProfileController@update');
+
+    // forum
     Route::get('/forumdetail/{id}', 'ForumController@show');
     Route::get('/createforum', 'ForumController@create');
     Route::post('/createforum/{id}', 'ForumController@store');
+
+    // comment
     Route::post('/postcomment', 'ForumController@comment');
+
+    // prediction
     Route::get('/prediction', function () {
         return view('dashboard.prediction');
     });
@@ -57,7 +63,7 @@ Route::group(['middleware' => ['auth', 'CheckRole:user,admin']], function () {
     });
 });
 
-Route::group(['middleware' => ['auth', 'CheckRole:admin']], function() {
+Route::group(['middleware' => ['auth', 'Admin']], function () {
     Route::get('/createblog', 'BlogController@create');
     Route::post('/postblog', 'BlogController@store');
 });
