@@ -71,7 +71,7 @@
         <div class="card-blog">
         <div class="header">
             <a href="/blogdetail/{{$blogs->id}}" class="post-thumb">
-              <img src="{{ asset('blog/' . $blogs->foto) }}" alt="">
+              <img src="{{ asset($blogs->foto) }}" alt="">
             </a>
         </div>
           <div class="body">

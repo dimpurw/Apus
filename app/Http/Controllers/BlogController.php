@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Jobs\ResizeImage;
+use App\Blog;
 
 class BlogController extends Controller
 {
@@ -37,15 +39,19 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-        $blog = new \App\Blog();
-        $blog->title = $request->title;
-        $blog->description = $request->description;
+        $fileUpload = new Blog;
+        $fileUpload->title = $request->title;
+        $fileUpload->description = $request->description;
         if ($request->hasFile('foto')) {
-            $request->file('foto')->move('blog/', $request->file('foto')->getClientOriginalName());
-            $blog->foto = $request->file('foto')->getClientOriginalName();
-            $blog->save();
+            $file = $request->file('foto');
+            $name = $file->getClientOriginalName();
+            $fileName  = auth()->user()->username . '_' . time() . '_' . $name;
+            $request->file('foto')->move('blog/', $fileName);
+            $fileUpload->foto = 'blog/' . $fileName;
+            $fileUpload->save();
         }
-        $blog->save();
+
+        ResizeImage::dispatch($fileUpload);
 
         return redirect('/blogs')->with('sukses', 'Data Berhasil Dibuat');
     }

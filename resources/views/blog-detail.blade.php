@@ -20,7 +20,7 @@
             <div class="col-lg-8">
                 <article class="blog-details">
                     <div class="post-thumb">
-                        <img src="{{ asset('blog/' . $blog->foto) }}" alt="">
+                        <img src="{{ asset($blog->foto) }}" alt="">
                     </div>
                     <div class="post-meta">
                         <div class="post-author">

@@ -33,7 +33,7 @@ Route::post('/postlogin', 'Auth\LoginController@store');
 Route::get('/logout', 'Auth\LoginController@logout');
 
 // home 
-Route::group(['middleware' => ['auth', 'CheckRole:User,Subscriber,Admin']], function () {
+Route::middleware('auth')->group(function () {
     Route::get('/dashboards', function () {
         return view('dashboard.index');
     });
@@ -63,7 +63,7 @@ Route::group(['middleware' => ['auth', 'CheckRole:User,Subscriber,Admin']], func
     });
 });
 
-Route::group(['middleware' => ['auth', 'Admin']], function () {
+Route::middleware('can:isAdmin')->group(function () {
     Route::get('/createblog', 'BlogController@create');
     Route::post('/postblog', 'BlogController@store');
 });
