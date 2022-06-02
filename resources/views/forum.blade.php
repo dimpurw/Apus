@@ -19,7 +19,7 @@
                         <span class="username">
                             <a href="#">{{$forums->user->username}}</a>
                         </span>
-                        <span class="description">Shared publicly - {{$forums->created_at}}</span>
+                        <span class="description">Shared publicly - {{$forums->created_at->format('m/d/Y')}}</span>
                         </div>
                         <!-- /.user-block -->
                         <p>

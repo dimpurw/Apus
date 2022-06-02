@@ -11,9 +11,9 @@
         <div class="card card-widget">
             <div class="card-header">
             <div class="user-block">
-                <img class="img-circle" src="{{auth()->user()->getFoto()}}" alt="Tidak ada foto">
+                <img class="img-circle" src="{{$forum->user->getFoto()}}" alt="Tidak ada foto">
                 <span class="username"><a href="#">{{$forum->user->username}}</a></span>
-                <span class="description">Shared publicly - {{$forum->created_at}}</span>
+                <span class="description">Shared publicly - {{$forum->created_at->format('m/d/Y')}}</span>
             </div>
             <!-- /.card-tools -->
             </div>
@@ -41,7 +41,7 @@
             @foreach($forum->comment as $comments)
             <div class="card-comment">
                 <!-- User image -->
-                <img class="img-circle img-sm" src="{{auth()->user()->getFoto()}}" alt="Tidak ada foto">
+                <img class="img-circle img-sm" src="{{$comments->user->getFoto()}}" alt="Tidak ada foto">
                 <div class="comment-text">
                 <span class="username">
                     {{$comments->user->username}}
@@ -62,7 +62,9 @@
                 <div class="img-push">
                 <input type="text" name="forum_id" value="{{$forum->id}}" hidden>
                 <input type="text" name="user_id" value="{{auth()->user()->id}}" hidden>
-                <input type="text" name="comment" class="form-control form-control-sm" placeholder="komentar anda"><button type="submit" class="btn btn-primary mt-2">kirim</button>
+                <input type="text" name="comment" class="form-control form-control-sm" placeholder="komentar anda">
+                <button type="submit" class="btn btn-primary mt-2">kirim</button>
+                <a href="/forum"><button type="button" class="btn btn-secondary mt-2">kembali</button></a>
                 </div>
             </form>
             </div>
